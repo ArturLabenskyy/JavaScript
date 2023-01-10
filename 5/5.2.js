@@ -15,10 +15,7 @@ function languageTop(language) {
         case `Arabic`:
             console.log(`5th most spoken language`);
             break;
-        case `Hebrew`:
-        case `Ukrainian`:
-        case `French`:
-        case `German`:
+        default:
             console.log(`Not in the top 5`);
     }
 }
