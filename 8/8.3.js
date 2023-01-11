@@ -37,6 +37,3 @@ const bookUtils = {
             : console.log(`NOT the same publisher`);
     },
 };
-
-const book3 = bookUtils.getFirstPublished(book1, book2);
-console.log(book3);
