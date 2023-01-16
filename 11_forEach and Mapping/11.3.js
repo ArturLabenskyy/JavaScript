@@ -48,8 +48,7 @@ function names(data) {
     console.log(allNames);
     return allNames;
 }
-
-// names(data);
+names(data);
 
 function before90(data) {
     const bornBefore90 = [];
@@ -63,5 +62,19 @@ function before90(data) {
     console.log(bornBefore90);
     return bornBefore90;
 }
+before90(data);
 
-// before90(data);
+function meals(data) {
+    let meals = {};
+    data.forEach(function (arr) {
+        let foods = arr.favoriteFoods;
+        for (key in foods) {
+            for (let i of foods[key]) {
+                i in meals ? (meals[i] += 1) : (meals[i] = 1);
+            }
+        }
+    });
+    console.log(meals);
+}
+
+meals(data);
