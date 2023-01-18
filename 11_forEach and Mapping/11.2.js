@@ -35,7 +35,7 @@ function showFirstAndLast(arr) {
     console.log(firstLast);
     return firstLast;
 }
-// showFirstAndLast(strings);
+showFirstAndLast(strings);
 
 //4444444444444444444444444444444444
 function vowelCount(str) {
@@ -48,7 +48,7 @@ function vowelCount(str) {
     console.log(vowels);
     return vowels;
 }
-// vowelCount(`Hello world! How are you?`);
+vowelCount(`Hello world! How are you?`);
 
 //555555555555555555555555555555555555555555555
 function capitalize(str) {
@@ -60,21 +60,19 @@ function capitalize(str) {
     capitalString = capitalString.replaceAll(`,`, ``);
     console.log(capitalString);
 }
-// capitalize(`hello`);
+capitalize(`hello`);
 
 //66666666666666666666666666666666
 function shiftLetters(str) {
     str = str.split(``);
-    console.log(str);
     let shiftStr = str.map(function (letter) {
         return String.fromCharCode(letter.charCodeAt(letter) - 1);
     });
-    console.log(shiftStr);
     shiftStr = shiftStr.toString();
     shiftStr = shiftStr.replaceAll(`,`, ``);
     console.log(shiftStr);
     return shiftStr;
 }
-// shiftLetters(`bcd`);
+shiftLetters(`bcd`);
 
 //77777777777777777777777777777777777777

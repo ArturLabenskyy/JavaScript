@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <canvas id="game-canvas" width="400" height="400"></canvas>
+<div id="color-picker">
+  <button id="red" class="color-button"></button>
+  <button id="blue" class="color-button"></button>
+  <button id="green" class="color-button"></button>
+</div>
+
+<script>
+  // get canvas element
+  var canvas = document.getElementById("game-canvas");
+  // get canvas context
+  var ctx = canvas.getContext("2d");
+
+  // image object
+  var image = new Image();
+  image.src = "path/to/image.jpg";
+  image.onload = function() {
+    ctx.drawImage(image, 0, 0);
+  }
+
+  // color buttons
+  var redButton = document.getElementById("red");
+  var blueButton = document.getElementById("blue");
+  var greenButton = document.getElementById("green");
+
+  // color buttons event listener
+  redButton.addEventListener("click", function() {
+    ctx.fillStyle = "red";
+  });
+  blueButton.addEventListener("click", function() {
+    ctx.fillStyle = "blue";
+  });
+  greenButton.addEventListener("click", function() {
+    ctx.fillStyle = "green";
+  });
+
+  // paint function
+  function paint(e) {
+    ctx.beginPath();
+    ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+
+  // canvas event listener
+  canvas.addEventListener("mousedown", paint);
+
+  // check for correct colors function
+  function checkColors() {
+    // check colors of each pixel
+    // compare with the correct colors
+    // show message if correct or incorrect
+  }
+
+  // check colors button
+  var checkButton = document.getElementById("check-button");
+  checkButton.addEventListener("click", checkColors);
+
+</script>
+
+</head>
+<body>
+  
+</body>
+</html>
