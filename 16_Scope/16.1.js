@@ -4,7 +4,7 @@
 // them.
 
 function funcA() {
-    console.log(a); // no declaration
+    console.log(a); // no declaration undefined
     console.log(foo()); // 2
     var a = 1; // nothing
     function foo() {
@@ -12,3 +12,23 @@ function funcA() {
     }
 }
 funcA();
+/////////////////////////////////////////////////
+function funcC() {
+    console.log("1");
+}
+funcC();
+function funcC() {
+    console.log("2");
+}
+// funcC();
+//////////////////////////////////////////////
+function funcD1() {
+    d = 1;
+}
+funcD1();
+console.log(d); //
+function funcD2() {
+    var e = 1;
+}
+funcD2();
+console.log(e); // 1
