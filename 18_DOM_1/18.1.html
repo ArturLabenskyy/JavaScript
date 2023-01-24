@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+        <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+        <a href="#">link</a>
+        <img src="" alt="" />
+        <div class="x">Div with a class</div>
+        <div id="y">Div with an id</div>
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+    </body>
+    <script>
+        // 1. Select all elements not using the querySelector method.
+        const elements = []
+        const bodyElement = document.getElementsByTagName(`body`)
+        elements.push(bodyElement)
+        const h1Element = document.getElementsByTagName(`h1`)
+        elements.push(h1Element)
+        const pElement = document.getElementsByTagName(`p`)
+        elements.push(pElement)
+        const aElement = document.getElementsByTagName(`a`)
+        elements.push(aElement)
+        const imgElement = document.getElementsByTagName(`img`)
+        elements.push(imgElement)
+        const divElement = document.getElementsByTagName(`div`)
+        elements.push(divElement)
+        const inputElement = document.getElementsByTagName(`input`)
+        elements.push(inputElement)
+        console.log(elements);
+        // 2. Select all elements using querySelector method.
+        const elementsByQuery = []
+        // 3. Select all inputs and iterate over them with the forEach
+        // method and print each one to the console. Using both
+        // querySelectorAll and getElementsByTagName.
+        const allInputsByQuery = document.querySelectorAll(`input`)
+        allInputsByQuery.forEach(function(element) {
+            console.log(`By querySelectorAll`, element);
+        })
+        const allInputsByGet = document.getElementsByTagName(`input`)
+        for (let element of allInputsByGet) {
+            console.log(`By getElementsByTagName`, element);
+        }
+    </script>
+</html>
