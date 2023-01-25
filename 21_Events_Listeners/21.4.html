@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #585858;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #box {
+        height: 200px;
+        width: 300px;
+        background: url(/off.jpg);
+        background-size: 100% 100%;
+    }
+</style>
+<body>
+    <div class="off" id="box"></div>
+</body>
+<script>
+    const lightbulb = document.querySelector(`#box`)
+    const body = document.querySelector(`body`)
+    const styles = getComputedStyle(lightbulb)
+    lightbulb.addEventListener(`click`, function() {
+        if (styles.backgroundImage.includes(`off.jpg`)) {
+            lightbulb.style.background = `url(/on.jpg)`
+            lightbulb.style.backgroundSize = `100% 100%`
+            body.style.background = `#646361`
+            lightbulb.className = `on`
+
+        } else {
+            lightbulb.style.background = `url(/off.jpg)`
+            lightbulb.style.backgroundSize = `100% 100%`
+            body.style.background = `#585858`
+            lightbulb.className = `off`
+        }
+
+    })
+    
+    
+</script>
+</html>
