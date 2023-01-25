@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age</title>
+</head>
+<body>
+    <input type="number" name="age" id="age-input">
+    <button id="submit">Submit</button>
+</body>
+<script>
+    const btn = document.getElementById(`submit`)
+    btn.addEventListener(`click`, function() {
+        const age = document.getElementById(`age-input`).value;
+        console.log(age);
+        age >= 18 ? alert(`you can drink appear”.`) : alert(`you’re too young`)
+    })
+</script>
+</html>
