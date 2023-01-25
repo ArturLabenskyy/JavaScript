@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        font-size: 16px
+    }
+</style>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, eligendi?</p>
+    <button id="increase">Increase text</button>
+    <button id="decrease">Decrease text</button>
+</body>
+<!-- Create a webpage that has some text and two buttons with ‘+’
+and ‘-‘ Clicking the ‘+’ button should increase the text’s font-size
+and clicking the ‘-‘ should decrease it.
+Limit the font size to be between 6px and 100px. -->
+<script>
+    const increase = document.getElementById(`increase`)
+    const decrease = document.getElementById(`decrease`)
+    const text = document.querySelector(`p`)
+    const pStyle = getComputedStyle(document.querySelector(`p`))
+    let pixNum = parseInt(pStyle.fontSize)
+    increase.addEventListener(`click`, function() {
+        if (pixNum < 100) {
+            pixNum += 1
+            text.style.fontSize = `${pixNum}px`
+        } else {
+            alert(`Max size of font is 100px!!!`)
+            return
+        }
+    })
+    decrease.addEventListener(`click`, function() {
+        if (pixNum > 6) {
+            pixNum -= 1
+            text.style.fontSize -= 1
+            text.style.fontSize = `${pixNum}px`
+        } else {
+            alert(`Min size of font is 6px!!!!`)
+            return
+        }
+    })
+</script>
+</html>
