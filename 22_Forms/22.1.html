@@ -1,0 +1,105 @@
+<!-- Create a webpage that has a form (asks the user for its name,
+age, and email address) and when the user clicks submit, open
+a text window that writes all the information and asks for his
+confirmation. If he clicks on the confirm button, tell him
+“congratulations you successfully sent this form” if he clicks on
+change information, give him the possibility to change the
+information, and ask again for his confirmation. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-size: 1.3rem;
+    }
+    body {
+        background-color: #9d9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    #modal {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50vw;
+        height: 50vh;
+        border: 3px solid black;
+        background-color: blanchedalmond;
+    }
+    #btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    input {
+        height: 5rem;
+    }
+</style>
+<!-- <div id="modal">
+    <p id="p-modal">Lorem ipsum dolor sit amet.</p>
+    <div id="btns">
+        <button id="confirm">Confirm</button>
+        <button id="change">Change Information</button>
+    </div>
+</div> -->
+<body>
+
+    <div id="modal">
+        <p id="name-confirm">Lorem ipsum dolor sit amet.</p>
+        <p id="age-confirm">Lorem ipsum dolor sit amet.</p>
+        <p id="email-confirm">Lorem ipsum dolor sit amet.</p>
+        <div id="btns">
+            <button class="btn" id="confirm">Confirm</button>
+            <button class="btn" id="change">Change Information</button>
+        </div>
+    </div>
+
+    <form action="" id="user-form">
+        <input type="text" name="user-name" id="name" placeholder="Enter your name">
+        <input type="number" name="age" id="age" placeholder="Enter your age">
+        <input type="text" name="email" id="email" placeholder="Enter your e-mail">
+        <input type="submit" value="Submit" id="submit" >
+    </form>
+
+</body>
+
+<script>
+    const userData = {}
+    const userName = document.querySelector(`#name`)
+    const userAge = document.querySelector(`#age`)
+    const userEmail = document.querySelector(`#email`)
+    const submit = document.querySelector(`#submit`)
+    const confirm1 = document.querySelector(`#confirm`)
+    const change = document.querySelector(`#change`)
+    submit.addEventListener(`click`, function(e) {
+        e.preventDefault()
+        document.querySelector(`#name-confirm`).textContent = `Your name: ${userName.value}`
+        document.querySelector(`#age-confirm`).textContent = `Your age: ${userAge.value}`
+        document.querySelector(`#email-confirm`).textContent = `Your e-mail: ${userEmail.value}`
+        document.querySelector(`#modal`).style.display = `flex`;
+    })
+    confirm1.addEventListener(`click`, function(e) {
+        document.querySelector(`#name-confirm`).textContent = ``
+        document.querySelector(`#age-confirm`).textContent = `Congratulations!!! You successfully sent this form`
+        document.querySelector(`#email-confirm`).textContent = ``
+        const btns = document.querySelectorAll(`.btn`);
+        btns[0].style.display = `none` 
+        btns[1].style.display = `none`
+    })
+    change.addEventListener(`click`, function(e) {
+        document.querySelector(`#modal`).style.display = `none`;
+    })
+</script>
+
+</html>
