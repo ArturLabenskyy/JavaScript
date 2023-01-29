@@ -1,0 +1,78 @@
+<!-- Instructions:
+Generate a random letter and create the following logic
+depending if the user guessed the right letter or not:
+The user guessed it right
+    ● Display a message that the user was right.
+    ● The message should be in the color green.
+    ● Show the right letter to the user.
+    ● Display a message if he wants to play again with a confirm button.
+    ● If the user wants to play again reset the DOM as it was in the beginning. User guessed wrong
+    ● Display a message that the user got wrong. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #777777;
+    }
+    button {
+        display: none;
+    }
+</style>
+
+<body>
+    <h1>Welcome To Guess My Letter</h1>
+    <h2 id="secret">❓</h2>
+    <h3 id="wrong"></h3>
+    <h3 id="again"></h3>
+    <h3 id="not-again"></h3>
+    <button>Yes</button>
+    <h1>KEYS GUESSED</h1>
+    <h2 id="user-guess"></h2>
+</body>
+
+<script>
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    var randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    var guessArr = []
+    const guess = document.querySelector(`#user-guess`)
+    const body = document.querySelector(`body`)
+    body.addEventListener(`keypress`, function(e) {
+        const letter = e.key.toLowerCase()
+        if (letter.codePointAt(0) >= 97 && letter.codePointAt(0) <= 122) {
+        if (randomLetter === letter) {
+            document.querySelector(`#secret`).textContent = randomLetter
+            document.querySelector(`#wrong`).textContent = `You are Right!!!!!`
+            document.querySelector(`#wrong`).style.color = `green`
+            document.querySelector(`#again`).textContent = `Would You Like To Play Again?`
+            document.querySelector(`button`).style.display = `block`
+        } else if (guessArr.indexOf(letter) === -1){
+            guessArr.push(letter)
+            guess.textContent = guessArr;
+            document.querySelector(`#wrong`).textContent = `Nope, wrong letter!!!!`
+            document.querySelector(`#wrong`).style.color = `red`
+        } else {
+            document.querySelector(`#again`).textContent = `You already guessed letter "${letter}" `
+        }
+        }
+    })
+    document.querySelector(`button`).addEventListener(`click`, function(e) {
+        document.querySelector(`#secret`).textContent = `❓`
+        document.querySelector(`#wrong`).textContent = ``
+        document.querySelector(`#again`).textContent = ``
+        guessArr = []
+        randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
+        document.querySelector(`button`).style.display = `none`
+    })
+</script>
+</html>
