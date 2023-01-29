@@ -1,0 +1,46 @@
+<!-- Create a webpage that has a checkbox. If the checkbox is
+checked, make a photo appear. If it is not, make it disappear. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #858484;
+        height: 100vh;
+    }
+    img {
+        display: none;
+        height: 40%;
+        width: 40%;
+    }
+    #check {
+        height: 3rem;
+        width: 3rem;
+    }
+</style>
+<body>
+    <input type="checkbox" name="checkbox" id="check">
+    <img src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80" alt="space">
+</body>
+<script>
+    const check = document.querySelector(`#check`)
+    check.addEventListener(`change`, function(e) {
+        if (this.checked) {
+            document.querySelector(`img`).style.display = `block`
+        } else {
+            document.querySelector(`img`).style.display = `none`
+
+        }
+    })
+</script>
+</html>
