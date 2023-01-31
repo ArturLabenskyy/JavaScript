@@ -25,7 +25,7 @@ Pokeman.prototype.callPokemon = function () {
 };
 
 Pokeman.prototype.attack = function (att) {
-    console.log(this.pokemonAttackList[att]);
+    console.log(`${this.pokemonName} used ${this.pokemonAttackList[att]}`);
 };
 
 pikachu.callPokemon();
