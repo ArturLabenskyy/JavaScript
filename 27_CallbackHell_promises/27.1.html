@@ -13,20 +13,22 @@
     function promiseCheck(num) {
     const p = new Promise((resolve, reject) => {
         if (num > 10) {
-            resolve();
-        } else reject();
+            resolve(`resolve!`);
+        } else reject(`reject...`);
     });
-    p.then(() => {
-        console.log(`resolve`);
+    p.then((data) => {
+        console.log(data);
     });
-    p.catch(() => {
-        console.log(`reject`);
+    p.catch((data) => {
+        console.log(data);
     });
     return p;
 }
-const p1 = promiseCheck(5);
-console.log(p1);
-const p2 = promiseCheck(11)
-console.log(p2);
+
+
+promiseCheck(5)
+promiseCheck(11)
+
+
 </script>
 </html>
