@@ -10,8 +10,46 @@
     
 </body>
 <script>
-    function makeAllCaps(arr) {
-        const p = new Promise((resolve, reject) => {})
-    }
+//     Write two functions that use Promises that you can chain.
+// The first function, makeAllCaps(), will take in an array of words
+// and capitalize them, and then the second function, sortWords(),
+// will sort the words in alphabetical order. If the array contains
+// anything but strings, it should throw an error.
+// Call the functions once with an array of words and call it once
+// with an array that includes at least one item that is not a word.
+// Print the resolve and reject in a .then, .catch.
+let arr1 = [`hello`, `beautiful`, `a world!`]
+let arr2 = [`hello`, `world`, 8062]
+
+function makeAllCaps(arr) {
+    const p = new Promise((resolve, reject) => {
+        for(let i = 0; i < arr.length; i++) {
+            if(typeof(arr[i]) != `string`) {
+                reject(arr[i])
+            } else {
+                arr[i] = arr[i].toUpperCase()
+            }
+        }
+        resolve(arr)
+    })
+    p
+    .then((data) => {
+        console.log(`All caps array: ${data}`);
+    })
+    .catch((data) => {
+        console.log(`${data} is not a string`);
+    })
+}
+
+function sortWords(arr) {
+    arr.sort()
+    console.log(`Sorted array: ${arr}`);
+}
+    
+   
+makeAllCaps(arr1)
+sortWords(arr1)
+makeAllCaps(arr2)
+sortWords(arr2)
 </script>
 </html>
