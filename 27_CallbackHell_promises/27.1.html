@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function promiseCheck(num) {
+    const p = new Promise((resolve, reject) => {
+        if (num > 10) {
+            resolve();
+        } else reject();
+    });
+    p.then(() => {
+        console.log(`resolve`);
+    });
+    p.catch(() => {
+        console.log(`reject`);
+    });
+    return p;
+}
+const p1 = promiseCheck(5);
+console.log(p1);
+const p2 = promiseCheck(11)
+console.log(p2);
+</script>
+</html>
