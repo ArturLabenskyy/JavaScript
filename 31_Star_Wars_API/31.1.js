@@ -40,7 +40,6 @@ function addToTable(obj) {
         const child1 = document.createElement(`td`);
         child1.textContent = obj[key];
         child.appendChild(child1);
-        console.log(child);
         tb.appendChild(child);
     }
 }
